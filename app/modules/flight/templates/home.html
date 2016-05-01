@@ -1,0 +1,40 @@
+<div>
+  
+  <section>
+
+    <md-toolbar class="md-primary">
+      <div class="md-toolbar-tools">
+        <h3>Flight Search Engine</h3>
+      </div>
+    </md-toolbar>
+    <div layout="row" layout-xs="column" >
+
+      <div 
+        flex="20"
+        flex-gt-lg="10"
+        flex-lg="10"
+        flex-gt-md="20"
+        flex-md="30"
+        flex-xs="100" 
+        flex-sm="40" 
+        ui-view="filter">
+      </div>
+
+      <span layout="row"><hr flex/></span>
+
+      <div 
+        flex="80" 
+        flex-gt-md="80"
+        flex-lg="80"
+        flex-md="70"
+        flex-xs="100" 
+        flex-sm="60" 
+        ui-view="content">
+      </div>
+
+    </div>
+
+  </section>
+
+
+</div>

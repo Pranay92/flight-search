@@ -1,0 +1,127 @@
+<md-content>   
+  <md-card>
+
+    <md-card-content layout="row">
+      <span 
+        flex="80" 
+        flex-xs="100" 
+        flex-sm="50" 
+        flex-md="70">
+        <h4>
+          {{journey}}
+        </h4>
+      </span>
+      <span 
+        flex="20" 
+        flex-xs="100" 
+        flex-sm="50" 
+        flex-md="30" 
+        layout="column">
+        <span flex="100" ng-if="departDate" layout-align="center center"> 
+          Depart : {{departDate | date :'mediumDate'}}
+        </span>
+        <span flex="100" ng-if="returnDate"> 
+          Return : {{returnDate | date : 'mediumDate'}}
+        </span>
+      </span>
+    </md-card-content>  
+
+    <md-progress-linear 
+      ng-show="searching"
+      md-mode="query">
+    </md-progress-linear>
+  </md-card>
+
+  <div layout="row" flex="100" layout-wrap>
+
+    <div ng-if="!records.length && !searching && initiated">
+      <md-card
+        md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              No matches found for your query. Please try with different date range or update filter.
+            </span>
+          </md-card-title-text> 
+        </md-card-title>
+      </md-card>
+    </div>
+
+    <div
+      ng-repeat="record in records | orderBy:'price'"
+      flex="50" 
+      flex-xs="100" 
+      flex-sm="100" 
+      >
+      <md-card 
+        md-theme-watch>
+        
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              Rs. {{record.price}}
+            </span>
+          </md-card-title-text> 
+        </md-card-title>
+
+        <md-card-content layout="row">
+
+          <div flex="50">
+
+            <span class="md-subhead">
+              {{record.flight.depart.no}} {{record.flight.depart.airline}}
+            </span>
+
+            </br>
+
+            <span class="md-subhead">
+              {{record.from}} > {{record.to}}
+            </span>
+
+            </br>
+
+            <span class="md-subhead">
+              Depart : {{record.depart | date : 'hh:mm a'}}
+            </span>
+
+            </br>
+            <span class="md-subhead">
+              Arrive : {{record.arrive | date : 'hh:mm a'}}
+            </span>
+
+          </div>
+
+          <div flex="50" ng-if="returnFlight">
+
+           <span class="md-subhead">
+              {{record.flight.return.no}} {{record.flight.return.airline}}
+            </span>
+
+            </br>
+
+            <span class="md-subhead">
+              {{record.to}} > {{record.from}}
+            </span>
+
+            </br>
+
+            <span class="md-subhead">
+              Depart : {{record.depart | date : 'hh:mm a'}}
+            </span>
+
+            </br>
+            <span class="md-subhead">
+              Arrive : {{record.arrive | date : 'hh:mm a'}}  
+            </span>
+          </div>
+
+
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="start start">
+          <md-button class="md-primary md-raised">Book flight</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+
+</md-content>

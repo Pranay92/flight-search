@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+
+<html lang="en" ng-app="flight-search" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Flight Search</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  
+</head>
+<body>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  
+  <div ui-view></div>
+
+  <!-- Libraries -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+
+  
+  <!-- Providers-->
+
+  <!-- Services -->
+  <script src="app/common/services/services.index.js"></script>
+  <script src="app/common/services/services.city.js"></script>
+  <script src="app/common/services/services.flight.js"></script>
+
+  <!-- Directives -->
+  <script src="app/common/directives/directives.index.js"></script>
+  
+  <!-- Flight module -->
+  <script src="app/modules/flight/flight.index.js"></script>
+  <script src="app/modules/flight/controllers/home.controller.js"></script>
+  <script src="app/modules/flight/controllers/filter.controller.js"></script>
+  <script src="app/modules/flight/controllers/content.controller.js"></script>
+  <script src="app/modules/flight/flight.route.js"></script>
+
+  <script src="app/app.module.js"></script>
+  <script src="app/app.config.js"></script>
+
+</body>
+</html>

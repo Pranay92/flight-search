@@ -1,0 +1,91 @@
+<md-content ng-controller="filterCtrl as ctrl"> 
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="One Way" ui-sref="home">
+      
+    </md-tab>
+    <md-tab label="Return" ui-sref="home.return" md-active="true">
+      <md-content>
+        <md-card md-theme-watch>
+          <md-card-content>
+            <form 
+              name="searchForm"
+              ng-submit="$event.preventDefault()">
+
+                <md-autocomplete
+                    required
+                    md-input-name="from"
+                    md-selected-item="ctrl.from"
+                    md-search-text="ctrl.fromQuery"
+                    md-items="item in ctrl.querySearch(ctrl.fromQuery)"
+                    md-item-text="item.display"
+                    md-min-length="1"
+                    placeholder="Enter Origin">
+
+                    <md-item-template>
+                      <span md-highlight-text="ctrl.fromQuery" md-highlight-flags="^i">
+                        {{item.display}}
+                      </span>
+                    </md-item-template>
+
+                    <md-not-found>
+                      No city matching "{{ctrl.fromQuery}}" were found.
+                    </md-not-found>
+                </md-autocomplete>
+
+                  <br/>
+
+                  <md-autocomplete
+                      md-selected-item="ctrl.to"
+                      md-search-text="ctrl.toQuery"
+                      md-items="item in ctrl.querySearch(ctrl.toQuery)"
+                      md-item-text="item.display"
+                      md-min-length="1"
+                      placeholder="Enter Destination">
+
+                    <md-item-template>
+                      <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                      No city matching "{{ctrl.searchText}}" were found.
+                    </md-not-found>
+                  </md-autocomplete>
+
+                  <br/>
+
+
+                  
+                  <md-datepicker ng-model="myDate" md-placeholder="Departure date"></md-datepicker>
+                  <md-datepicker ng-model="myDate" md-placeholder="Return date"></md-datepicker>
+
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Passengers</label>
+                    <md-select ng-model="passenger">
+                      <md-option ng-repeat="no in ctrl.validCount" value="{{no}}">
+                        {{no}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                  <br/>
+
+                  <md-button class="md-primary md-raised">Search</md-button>  
+                  
+
+                </form>
+                </md-card-content>
+            </md-card>
+            <md-card>
+              <md-card-content>
+                <form>
+                  <md-slider-container>
+                    <span class="md-body-1">Refine flight search</span>
+                    <md-slider flex ng-model="color.blue" min="0" max="255" aria-label="blue" id="blue-slider" class="md-primary">
+                    </md-slider>
+                  </md-slider-container>
+                </form>
+              </md-card-content>
+            </md-card>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+<md-content>
